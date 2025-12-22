@@ -8,6 +8,7 @@ nltk.data.path.append(NLTK_DIR)
 @st.cache_resource
 def download_nltk():
     nltk.download("punkt", download_dir=NLTK_DIR, quiet=True)
+    nltk.download("punkt_tab", download_dir=NLTK_DIR, quiet=True)
     nltk.download("stopwords", download_dir=NLTK_DIR, quiet=True)
 
 download_nltk()
