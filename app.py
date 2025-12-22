@@ -1,14 +1,16 @@
 import streamlit as st
 import joblib
 import nltk
+import os
+NLTK_DIR = os.path.join(os.getcwd(), "nltk_data")
+nltk.data.path.append(NLTK_DIR)
 
 @st.cache_resource
 def download_nltk():
-    nltk.download("punkt", quiet=True)
-    nltk.download("stopwords", quiet=True)
+    nltk.download("punkt", download_dir=NLTK_DIR, quiet=True)
+    nltk.download("stopwords", download_dir=NLTK_DIR, quiet=True)
 
 download_nltk()
-
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
 
