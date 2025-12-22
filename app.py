@@ -1,8 +1,13 @@
 import streamlit as st
 import joblib
 import nltk
-nltk.download("punkt")
-nltk.download("stopwords")
+
+@st.cache_resource
+def download_nltk():
+    nltk.download("punkt", quiet=True)
+    nltk.download("stopwords", quiet=True)
+
+download_nltk()
 
 from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer
